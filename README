@@ -1,0 +1,7 @@
+# Makes an Arduino Library from the AVR2025 distribution
+
+Currently under development.  See PROBLEMS file for issues.
+
+From this directory, "jam files" will pull the global files into this dir.
+
+From examples/Promiscuous_Mode_Demo, "jam files" will pull the specific files that this demo needs.
