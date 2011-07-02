@@ -32,7 +32,7 @@ OUT_DIR = . ;
 File example_main.c : $(PATH_APP)/Src/main.c ;
 Depends files : example_main.c ;
 
-for _I in $(PROJECT_MAC_MODULES) [ GLOB $(PROJECT_HDRS) : *.h ]
+for _I in $(MAC_LIB)/$(PROJECT_MAC_MODULES) [ GLOB $(PROJECT_HDRS) : *.h ]
 {
 	local _O = $(_I:D=$(OUT_DIR)) ;
 	File $(_O) : $(_I) ;
