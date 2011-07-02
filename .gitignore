@@ -1,0 +1,6 @@
+.*.swp
+.*.swo
+*.c
+*.h
+error
+ojam/

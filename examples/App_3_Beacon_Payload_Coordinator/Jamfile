@@ -1,0 +1,9 @@
+APP_DIR = App_3_Beacon_Payload/Coordinator ;
+CFLAGS += -DSIO_HUB ;
+CFLAGS += -DUSB0 ;
+CFLAGS += -DDEBUG=0 ;
+CFLAGS += -DREDUCED_PARAM_CHECK ;
+CFLAGS += -DENABLE_TSTAMP ;
+CFLAGS += -DFFD ;
+CFLAGS += -DBEACON_SUPPORT ;
+include ../Jamfile ;

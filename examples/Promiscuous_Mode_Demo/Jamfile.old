@@ -1,0 +1,5 @@
+APP_DIR = Promiscuous_Mode_Demo ;
+
+CFLAGS += -DPROMISCUOUS_MODE -DENABLE_TSTAMP -DSIO_HUB -DUSB0  ;
+
+include ../Jamfile ; 

@@ -1,0 +1,7 @@
+APP_DIR = App_4_Beacon_Broadcast_Data/Device ;
+CFLAGS += -DSIO_HUB ;
+CFLAGS += -DUSB0 ;
+CFLAGS += -DDEBUG=0 ;
+CFLAGS += -DBEACON_SUPPORT ;
+CFLAGS += -DREDUCED_PARAM_CHECK ;
+include ../Jamfile ;

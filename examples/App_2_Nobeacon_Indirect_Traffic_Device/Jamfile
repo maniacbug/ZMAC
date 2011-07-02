@@ -1,0 +1,16 @@
+APP_DIR = App_2_Nobeacon_Indirect_Traffic/Device ;
+PROJECT_MAC_MODULES += usr_mcps_purge_conf.c  ;
+PROJECT_MAC_MODULES += usr_mcps_data_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_beacon_notify_ind.c  ;
+PROJECT_MAC_MODULES += usr_mlme_disassociate_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_disassociate_ind.c  ;
+PROJECT_MAC_MODULES += usr_mlme_get_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_set_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_orphan_ind.c  ;
+PROJECT_MAC_MODULES += usr_mlme_rx_enable_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_sync_loss_ind.c ;
+CFLAGS += -DSIO_HUB ;
+CFLAGS += -DUSB0 ;
+CFLAGS += -DDEBUG=0 ;
+CFLAGS += -DREDUCED_PARAM_CHECK ;
+include ../Jamfile ;

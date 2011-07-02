@@ -1,0 +1,288 @@
+PROJECT_DIR 	= ../../../../.. ;
+PROJECT_LIBS 	=  ; 
+
+OUT_DIR 	= ojam ;
+
+# Build specific properties
+_TAL_TYPE = ATMEGARF_TAL_1 ;
+_PAL_TYPE = ATMEGA128RFA1 ;
+_PAL_GENERIC_TYPE = MEGA_RF ;
+_BOARD_TYPE ?= RCB_6_3_SENS_TERM_BOARD ; 
+_HIGHEST_STACK_LAYER = MAC ;
+
+# Path variables
+## Path to main project directory
+PATH_ROOT = $(PROJECT_DIR) ; 
+PATH_APP = $(PATH_ROOT)/Applications/MAC_Examples/$(APP_DIR) ;
+PATH_TAL = $(PATH_ROOT)/TAL ;
+PATH_TFA = $(PATH_ROOT)/TFA ;
+PATH_MAC = $(PATH_ROOT)/MAC ;
+PATH_PAL = $(PATH_ROOT)/PAL ;
+PATH_RES = $(PATH_ROOT)/Resources ;
+PATH_GLOB_INC = $(PATH_ROOT)/Include ;
+PATH_SIO_SUPPORT = $(PATH_ROOT)/Applications/Helper_Files/SIO_Support ;
+
+F_CPU 		= 16000000 ;
+MCU             = atmega128rfa1 ;
+#MCU             = atxmega128a1 ;
+
+UPLOAD_RATE 	= 57600 ;
+AVRDUDE_PROTOCOL = stk500v1 ;
+COM 		= 33 ;
+
+# Host-specific overrides for locations 
+if $(OS) = MACOSX 
+{
+ARDUINO_VERSION	= 22 ;
+OLD_DIR 	= /opt/arduino-0021 ;
+AVR_TOOLS_PATH  = /usr/local/avrtools/bin ;
+#AVR_TOOLS_PATH 	= $(OLD_DIR)/hardware/tools/avr/bin ;
+AVRDUDECONFIG_PATH = $(OLD_DIR)/hardware/tools/avr/etc ;
+ARDUINO_DIR 	= /opt/Arduino ;
+ARDUINO_AVR 	= /usr/lib/avr/include ;
+}
+
+# Where is everything?
+ARDUINO_VERSION	?= 22 ;
+AVR_TOOLS_PATH 	?= /usr/bin ;
+ARDUINO_DIR 	?= /opt/arduino-00$(ARDUINO_VERSION) ;
+ARDUINO_AVR 	?= $(ARDUINO_DIR)/hardware/tools/avr/avr/include/avr ;
+AVRDUDECONFIG_PATH ?= $(ARDUINO_DIR)/hardware/tools ;
+ARDUINO_CORE 	= $(ARDUINO_DIR)/hardware/arduino/cores/arduino ;
+ARDUINO_LIB 	= $(ARDUINO_DIR)/libraries ;
+SKETCH_LIB      = $(HOME)/Source/Arduino/libraries ;
+AVR_CC  	= $(AVR_TOOLS_PATH)/avr-gcc ;
+AVR_CXX  	= $(AVR_TOOLS_PATH)/avr-g++ ;
+AVR_LD  	= $(AVR_TOOLS_PATH)/avr-gcc ;
+AVR_OBJCOPY 	= $(AVR_TOOLS_PATH)/avr-objcopy ;
+AVRDUDE 	= $(AVR_TOOLS_PATH)/avrdude ;
+
+DEFINES  	= ARDUINO=$(ARDUINO_VERSION) TAL_TYPE=$(_TAL_TYPE) PAL_GENERIC_TYPE=$(_PAL_GENERIC_TYPE) PAL_TYPE=$(_PAL_TYPE) BOARD_TYPE=$(_BOARD_TYPE) HIGHEST_STACK_LAYER=$(_HIGHEST_STACK_LAYER) ;
+
+DEFINES += DEBUG=0 ;
+#DEFINES += F_CPU=$(F_CPU)L
+
+CTUNING  	= -ffunction-sections -fdata-sections ;
+CXXTUNING  	= -fno-exceptions -fno-strict-aliasing ; 
+CFLAGS  	+= -Os -Wall -Wextra -Wundef -std=c99 -mmcu=$(MCU) -MD -MP $(CTUNING) ;
+CXXFLAGS  	= $(CFLAGS) $(CXXTUNING) ;
+LDFLAGS  	= -Os -lm -Wl,--gc-sections -mmcu=atmega328p ;
+
+# Search everywhere for headers
+#HDRS  	 	= $(PROJECT_DIR) $(ARDUINO_AVR) $(ARDUINO_CORE) [ GLOB $(ARDUINO_LIB) $(SKETCH_LIB) : [^.]* ] ;
+
+HDRS =  $(PATH_APP)/Src $(PATH_APP)/Inc $(PATH_SIO_SUPPORT)/Inc $(PATH_GLOB_INC) $(PATH_RES)/Buffer_Management/Inc/ $(PATH_RES)/Queue_Management/Inc/ $(PATH_MAC)/Inc/ $(PATH_TAL)/Inc/ $(PATH_TAL)/$(_TAL_TYPE)/Inc/ $(PATH_ROOT)/TFA/Inc/ $(PATH_PAL)/Inc/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Inc $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Inc/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/$(_BOARD_TYPE) ;
+
+# Grab everything from the core directory
+
+#CORE_MODULES  	= [ GLOB $(ARDUINO_CORE) : *.c *.cpp ] ;
+CORE_MODULES  	=  ;
+
+# Grab everything from libraries.  To avoid this "grab everything" behaviour, you
+# can specify specific modules to pick up in PROJECT_MODULES
+
+NON_MAC_LIB =  $(PATH_SIO_SUPPORT)/Src $(PATH_RES)/Buffer_Management/Src/ $(PATH_RES)/Queue_Management/Src/  $(PATH_TAL)/$(_TAL_TYPE)/Src/ $(PATH_ROOT)/TFA/$(_TAL_TYPE)/Src/ $(PATH_PAL)/Src/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Src/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/$(_BOARD_TYPE) ;
+MAC_LIB = $(PATH_MAC)/Src/ ; 
+TAL_LIB = $(PATH_TAL)/Src/ ;
+
+LIB_MODULES  	= [ GLOB $(NON_MAC_LIB) : *.c ] ;
+LIB_MODULES  	+= [ GLOB $(MAC_LIB) : mac*.c ] ;
+
+#LIB_MODULES  	= [ GLOB $(ARDUINO_LIB)/$(PROJECT_LIBS) $(SKETCH_LIB)/$(PROJECT_LIBS) : *.cpp ] ;
+#LIB_MODULES = [ GLOB $(MAC_LIB) : *.c ] ;
+#LIB_MODULES = ;
+
+LIB_MODULES += $(PATH_APP)/Src/main.c ;
+#LIB_MODULES += $(PATH_SIO_SUPPORT)/Src/sio_handler.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src/pal_uart.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Src/pal_usb_ftdi.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Src/pal_sio_hub.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Src/pal_irq.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src/pal.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Src/pal_mcu_generic.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Src/pal_timer.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/$(_BOARD_TYPE)/pal_board.c ;
+#LIB_MODULES += $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src/pal_utils.c ;
+#LIB_MODULES += $(PATH_RES)/Buffer_Management/Src/bmm.c ;
+#LIB_MODULES += $(PATH_RES)/Queue_Management/Src/qmm.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_rx.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_tx.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_ed.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_slotted_csma.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_pib.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_init.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_irq_handler.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_pwr_mgmt.c ;
+#LIB_MODULES += $(PATH_TAL)/$(_TAL_TYPE)/Src/tal_rx_enable.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_associate.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_beacon.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_callback_wrapper.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_data_ind.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_data_req.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_disassociate.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_dispatcher.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_mcps_data.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_misc.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_orphan.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_pib.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_poll.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_process_beacon_frame.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_process_tal_tx_frame_status.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_rx_enable.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_scan.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_start.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_sync.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_tx_coord_realignment_command.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mcps_purge_conf.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_associate_conf.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_associate_ind.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_beacon_notify_ind.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_comm_status_ind.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_disassociate_conf.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_disassociate_ind.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_orphan_ind.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_poll_conf.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_scan_conf.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_start_conf.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/usr_mlme_sync_loss_ind.c ;
+#LIB_MODULES += $(PATH_MAC)/Src/mac_api.c ;
+
+# In addition to explicitly-specified program modules, pick up anything from the current
+# dir.
+#PROJECT_MODULES += [ GLOB $(PROJECT_DIR) : *.c *.cpp *.pde ] ;
+
+#PROJECT_MODULES = $(PATH_APP)/Src/main.c ;
+
+# Shortcut for the out files
+OUT             = $(OUT_DIR)/$(PROJECT_NAME) ;
+
+# AvrDude setup
+AVRDUDE_FLAGS = -V -F -D -C $(AVRDUDECONFIG_PATH)/avrdude.conf -p $(MCU) -c $(AVRDUDE_PROTOCOL) -b $(UPLOAD_RATE) ;
+
+rule AvrCc
+{
+  Depends $(<) : $(>) ;
+  Depends $(<) : $(<:D) ;
+  Clean clean : $(<) ;
+
+  CCHDRS on $(<) = [ on $(<) FIncludes $(HDRS) ] ;
+  CCDEFS on $(<) = [ on $(<) FDefines $(DEFINES) ] ;
+}
+
+actions AvrCc
+{
+  $(AVR_CC) -c -o $(<) $(CCHDRS) $(CCDEFS) $(CFLAGS) $(>) 
+}
+
+rule AvrC++
+{
+  Depends $(<) : $(>) ;
+  Depends $(<) : $(<:D) ;
+  Clean clean : $(<) ;
+
+  CCHDRS on $(<) = [ on $(<) FIncludes $(HDRS) ] ;
+  CCDEFS on $(<) = [ on $(<) FDefines $(DEFINES) ] ;
+}
+
+actions AvrC++
+{
+  $(AVR_CXX) -c -o $(<) $(CCHDRS) $(CCDEFS) $(CXXFLAGS) $(>) 
+}
+
+rule Pde
+{
+  Depends $(<) : $(>) ;
+  Depends $(<) : $(<:D) ;
+  Clean clean : $(<) ;
+
+}
+
+actions Pde
+{
+  echo "#include <WProgram.h>" > $(<) 
+  echo "#line 1 \"$(>)\"" >> $(<)
+  cat $(>) >> $(<) 
+}
+
+rule AvrPde
+{
+  local _CPP = $(OUT_DIR)/$(_I:B).cpp ;
+  Pde $(_CPP) : $(>) ;
+  AvrC++ $(<) : $(_CPP) ;
+}
+
+rule AvrObject
+{
+  switch $(>:S)
+  {
+    case .c :   AvrCc $(<) : $(>) ;
+    case .cpp : AvrC++ $(<) : $(>) ;
+    case .pde : AvrPde $(<) : $(>) ;
+  }
+}
+
+rule AvrObjects
+{
+  for _I in $(<) 
+  {
+    AvrObject $(OUT_DIR)/$(_I:B).o : $(_I) ;
+  }
+}
+
+rule AvrMainFromObjects
+{
+  Depends $(<) : $(>) ;
+  Depends $(<) : $(<:D) ;
+  MkDir $(<:D) ;
+  Depends all : $(<) ;
+  Clean clean : $(<) ;
+}
+
+actions AvrMainFromObjects
+{
+  $(AVR_LD) $(LDFLAGS) -o $(<) $(>) 
+}
+
+rule AvrMain
+{
+  AvrMainFromObjects $(<) : $(OUT_DIR)/$(>:B).o ;
+  AvrObjects $(>) ;
+}
+
+rule AvrHex
+{
+  Depends $(<) : $(>) ;
+  Depends $(<) : $(<:D) ;
+  Depends hex : $(<) ;
+  Clean clean : $(<) ;
+}
+
+actions AvrHex
+{
+  $(AVR_OBJCOPY) -O ihex -R .eeprom $(>) $(<)
+}
+
+rule AvrUpload
+{
+  Depends $(1) : $(2) ;
+  Depends $(2) : $(3) ;
+  NotFile $(1) ;
+  Always $(1) ;
+  Always $(2) ;
+  AvrUploadAction $(2) : $(3) ;
+}
+
+actions AvrUploadAction
+{
+  $(AVRDUDE) $(AVRDUDE_FLAGS) -P $(<) $(AVRDUDE_WRITE_FLASH) -U flash:w:$(>):i
+}
+
+AvrMain $(OUT).elf : $(CORE_MODULES) $(LIB_MODULES) $(PATH_MAC)/Src/$(PROJECT_MAC_MODULES) ;
+AvrHex $(OUT).hex : $(OUT).elf ;
+
+AvrUpload p6 : /dev/tty.usbserial-A600eHIs : $(OUT).hex ;
+AvrUpload p4 : /dev/tty.usbserial-A40081RP : $(OUT).hex ;
+AvrUpload p9 : /dev/tty.usbserial-A9007LmI : $(OUT).hex ;
+

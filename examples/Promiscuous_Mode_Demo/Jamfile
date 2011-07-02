@@ -1,0 +1,41 @@
+APP_DIR = Promiscuous_Mode_Demo ;
+PROJECT_MAC_MODULES += usr_mcps_data_conf.c  ;
+PROJECT_MAC_MODULES += usr_mcps_purge_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_associate_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_associate_ind.c  ;
+PROJECT_MAC_MODULES += usr_mlme_beacon_notify_ind.c  ;
+PROJECT_MAC_MODULES += usr_mlme_comm_status_ind.c  ;
+PROJECT_MAC_MODULES += usr_mlme_disassociate_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_disassociate_ind.c  ;
+PROJECT_MAC_MODULES += usr_mlme_orphan_ind.c  ;
+PROJECT_MAC_MODULES += usr_mlme_poll_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_rx_enable_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_scan_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_start_conf.c  ;
+PROJECT_MAC_MODULES += usr_mlme_sync_loss_ind.c ;
+CFLAGS += -DSIO_HUB ;
+CFLAGS += -DUSB0 ;
+CFLAGS += -DDEBUG=0 ;
+CFLAGS += -DPROMISCUOUS_MODE ;
+CFLAGS += -DENABLE_TSTAMP ;
+#include ../../Jamfile ;
+
+PATH_ROOT = $(HOME)/Source/MAC_v_2_6_1 ;
+PATH_APP = $(PATH_ROOT)/Applications/MAC_Examples/$(APP_DIR) ;
+PATH_MAC = $(PATH_ROOT)/MAC ;
+MAC_LIB = $(PATH_MAC)/Src/ ; 
+
+PROJECT_HDRS = $(PATH_APP)/Src $(PATH_APP)/Inc ;
+
+OUT_DIR = . ;
+
+File example_main.c : $(PATH_APP)/Src/main.c ;
+Depends files : example_main.c ;
+
+for _I in $(PROJECT_MAC_MODULES) [ GLOB $(PROJECT_HDRS) : *.h ]
+{
+	local _O = $(_I:D=$(OUT_DIR)) ;
+	File $(_O) : $(_I) ;
+	Depends files : $(_O) ;
+}
+

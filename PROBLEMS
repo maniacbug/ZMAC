@@ -1,0 +1,5 @@
+Currently working on Promiscuous Mode demo
+
+1. Copied app_config from the app into the library.
+2. Hard-coded #defines in pal.h which should be passed it at command-line
+3. Argh!  Code uses c99 standards, but Arduino does not and cannot set it.
