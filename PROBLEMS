@@ -37,7 +37,11 @@ ojam/pal.o: In function `pal_init':
 pal.c:(.text.pal_init+0xc): undefined reference to `wdt_init'
 
 
-User stories:
-
+TODO
+* User stories
+* Board configs: RFD, FFD, API
+	* API: MAC_USER_BUILD_CONFIG plus FFD
+	* FFD: FFD
+	* RFD: Nothing additional
 
 
