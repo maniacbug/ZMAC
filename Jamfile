@@ -28,10 +28,19 @@ TAL_LIB = $(PATH_TAL)/Src/ ;
 LIB_MODULES  	= [ GLOB $(NON_MAC_LIB) : *.c ] ;
 LIB_MODULES  	+= [ GLOB $(MAC_LIB) : mac*.c ] ;
 
+rule FilePrep
+{
+  Depends $(<) : $(>) ;
+  Depends fileprep : $(<) ;
+}
+
+actions FilePrep
+{
+  gawk -f fileprep.awk $(>) > $(<)
+}
+
 for _I in $(LIB_MODULES) [ GLOB $(HDRS) : *.h ]
 {
-	local _O = $(_I:D=$(OUT_DIR)) ;
-	File $(_O) : $(_I) ;
-	Depends files : $(_O) ;
+  FilePrep $(_I:D=$(OUT_DIR)) : $(_I) ;
 }
 

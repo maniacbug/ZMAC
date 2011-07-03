@@ -1,4 +1,7 @@
-#include <Mac802154.h>
+#include <AVR2025.h>
+
+#define PRIu32 "lu"
+#define PRIX8 "x"
 
 /* === INCLUDES ============================================================ */
 
@@ -14,12 +17,6 @@
 #include <app_config.h>
 #include <ieee_const.h>
 #include <sio_handler.h>
-
-#define SIO_HUB 
-#define USB0 
-#define DEBUG=0 
-#define PROMISCUOUS_MODE 
-#define ENABLE_TSTAMP 
 
 /* === TYPES =============================================================== */
 
@@ -83,7 +80,6 @@ void loop(void)
 {
 
 }
-
 /**
  * @brief Main function of the promiscuous mode demo application
  */
