@@ -1,14 +1,14 @@
-
 /* === Configuration Defines ================================================*/
 
-#define SIO_HUB 
-#define USB0 
-#define DEBUG 0 
-#define PROMISCUOUS_MODE 
+#define DEBUG 0
+#define REDUCED_PARAM_CHECK
+#define ENABLE_TFA
+#define FFD
 #define ENABLE_TSTAMP 
 
 #define TAL_TYPE ATMEGARF_TAL_1
 #define PAL_TYPE ATMEGA128RFA1
 #define PAL_GENERIC_TYPE MEGA_RF
 #define HIGHEST_STACK_LAYER MAC
-#define BOARD_TYPE RCB_6_3_SENS_TERM_BOARD
+#define BOARD_TYPE RCB_6_3_PLAIN
+//#define BOARD_TYPE RCB_6_3_SENS_TERM_BOARD

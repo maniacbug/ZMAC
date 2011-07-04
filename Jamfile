@@ -4,7 +4,8 @@ _TAL_TYPE = ATMEGARF_TAL_1 ;
 _PAL_TYPE = ATMEGA128RFA1 ;
 _PAL_GENERIC_TYPE = MEGA_RF ;
 _HIGHEST_STACK_LAYER = MAC ;
-_BOARD_TYPE = RCB_6_3_SENS_TERM_BOARD ;
+_BOARD_TYPE = RCB_6_3_PLAIN ; 
+# Make sure these match DEFINES !!
 
 # Path variables
 ## Path to main project directory

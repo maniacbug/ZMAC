@@ -2,5 +2,7 @@
 .*.swo
 *.c
 *.h
+*.orig
 error
 ojam/
+!AVR2025.h
