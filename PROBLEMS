@@ -3,11 +3,17 @@ Currently working on Promiscuous Mode demo
 1. Copied app_config.h from the app into the library.  Hopefully I can simply hard-code app_config.h
 2. Hard-coded #defines in pal.h which should be passed it at command-line (actually put in DEFINES now).  Actually, I am needing to stash this in all over the place.  in fileprep_awk 
 3. Argh!  Code uses c99 standards, but Arduino does not and cannot set it. workaround by gawk'ing fors areund
-4. Redistrubiting main.c, contrary to license, and reforumlating it into a PDE.  This could be done by gawk.
+4. Redistrubiting main.c, contrary to license, and reforumlating it into a PDE.  This could be done by gawk.  Instead of reformulating, I'm just renaming main to example_main which could EASILY be done by gawk
 5. Created empty AVR2025.h
 6. pal.h redefines LOW & HIGH!! changed to pin_LOW pin_HIGH in fileprep.awk
-7. pal.h and tal.h needs an extra } at end but only if C++, not sure why.
+7. pal.h and tal.h needs an extra } at end but only if C++, not sure why.  (Not any more it seems ...)
 8. example #includes need to have angle brackets so they can find the libs dir
+
+TODO
+* move the DEFINES into AVR2025.h, and change fileprep.awk
+* use the Zigduino board info, using vendor_boardtypes.h
+
+Looks like DEFINES has the 'proper' set of universal defines.
 
 Things to try to do now
 
