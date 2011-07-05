@@ -204,3 +204,4 @@ AvrUpload p6 : /dev/tty.usbserial-A600eHIs : $(OUT).hex ;
 AvrUpload p4 : /dev/tty.usbserial-A40081RP : $(OUT).hex ;
 AvrUpload p9 : /dev/tty.usbserial-A9007LmI : $(OUT).hex ;
 
+AvrUpload usb0 : /dev/ttyUSB0 : $(OUT).hex ;
