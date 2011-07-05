@@ -8,6 +8,12 @@ Currently working on Promiscuous Mode demo
 6. pal.h redefines LOW & HIGH!! changed to pin_LOW pin_HIGH in fileprep.awk
 7. pal.h and tal.h needs an extra } at end but only if C++, not sure why.  (Not any more it seems ...)
 8. example #includes need to have angle brackets so they can find the libs dir
+9. pal_types.h redefines AVR, so I threw an undef in ther.
+
+10...
+/home/james/Source/Arduino/libraries/AVR2025/tal_init.c:128: warning: integer constant is too large for ‘long’ type
+/home/james/Source/Arduino/libraries/AVR2025/mac_misc.c:76: warning: integer constant is too large for ‘long’ type
+./example_main.c:174: warning: no return statement in function returning non-void
 
 TODO
 * move the DEFINES into AVR2025.h, and change fileprep.awk
