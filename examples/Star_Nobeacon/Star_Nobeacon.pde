@@ -1,9 +1,13 @@
 #include <AVR2025.h>
+#include "printf.h"
 
 extern "C" int example_main(void);
 
 void setup(void) 
-{ 
+{
+  Serial.begin(57600);
+  printf_begin();
+  printf("AVR2025/examples/Star_Nobeacon/");
   example_main(); 
 }
 void loop(void) 
