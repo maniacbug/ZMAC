@@ -11,3 +11,4 @@ ojam/
 !pal_board.c
 !pal_config.h
 !example_main.c
+!printf.h
