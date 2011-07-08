@@ -1,4 +1,0 @@
-PROJECT_NAME = $(PWD:B) ;
-_BOARD_TYPE = RCB_6_3_SENS_TERM_BOARD ;
-
-include ../../Jamfile ; 
