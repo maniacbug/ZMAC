@@ -22,8 +22,8 @@ BEGIN {
   gsub(/== HIGH/,"== pin_HIGH")
   gsub(/= LOW/,"= pin_LOW")
   gsub(/= HIGH/,"= pin_HIGH")
-  gsub(/^    HIGH,/,"    pin_HIGH")
-  gsub(/^    LOW,/,"    pin_LOW")
+  gsub(/^    HIGH/,"    pin_HIGH")
+  gsub(/^    LOW,/,"    pin_LOW,")
   
   gsub(/main.void/,"example_main(void")
 
