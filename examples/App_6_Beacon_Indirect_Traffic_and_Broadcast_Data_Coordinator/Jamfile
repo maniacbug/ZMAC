@@ -1,8 +1,0 @@
-APP_DIR = App_6_Beacon_Indirect_Traffic_and_Broadcast_Data/Coordinator ;
-CFLAGS += -DSIO_HUB ;
-CFLAGS += -DUSB0 ;
-CFLAGS += -DDEBUG=0 ;
-CFLAGS += -DREDUCED_PARAM_CHECK ;
-CFLAGS += -DFFD ;
-CFLAGS += -DBEACON_SUPPORT ;
-include ../Jamfile ;

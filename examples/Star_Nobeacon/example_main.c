@@ -1,3 +1,4 @@
+#include <DEFINES>
 /**
  * @file main.c
  *
@@ -19,17 +20,15 @@
 
 /* === INCLUDES ============================================================ */
 
-#include <AVR2025.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <stdbool.h>
-#include <pal.h>
-#include <tal.h>
-#include <mac_api.h>
-#include <app_config.h>
-#include <ieee_const.h>
+#include "pal.h"
+#include "tal.h"
+#include "mac_api.h"
+#include "app_config.h"
+#include "ieee_const.h"
 
 /* === TYPES =============================================================== */
 
@@ -126,12 +125,12 @@ static bool assign_new_short_addr(uint64_t addr64, uint16_t *addr16);
 
 /* === IMPLEMENTATION ====================================================== */
 
+
 /**
  * @brief Main function of the device application
  */
 int example_main(void)
 {
-    printf("Init MAC...\n\r");
     /* Initialize the MAC layer and its underlying layers, like PAL, TAL, BMM. */
     if (wpan_init() != MAC_SUCCESS)
     {
@@ -144,7 +143,6 @@ int example_main(void)
     }
 
     /* Initialize LEDs. */
-    printf("Init LEDs...\n\r");
     pal_led_init();
     pal_led(LED_START, LED_ON);         // indicating application is started
     pal_led(LED_NWK_SETUP, LED_OFF);    // indicating node is associated
@@ -154,7 +152,6 @@ int example_main(void)
      * The stack is initialized above, hence the global interrupts are enabled
      * here.
      */
-    printf("Init IRQs...\n\r");
     pal_global_irq_enable();
 
     /*
@@ -162,17 +159,16 @@ int example_main(void)
      * This request will cause a mlme reset confirm message ->
      * usr_mlme_reset_conf
      */
-    printf("Reset MAC...\n\r");
     wpan_mlme_reset_req(true);
 
-    printf("Ready...\n\r");
     /* Main loop */
     while (1)
     {
         wpan_task();
     }
-    return 0;
 }
+
+
 
 /**
  * @brief Callback function usr_mlme_reset_conf
@@ -183,7 +179,6 @@ void usr_mlme_reset_conf(uint8_t status)
 {
     if (status == MAC_SUCCESS)
     {
-	printf("Reset MAC successful, scanning...\n\r");
         /*
          * Initiate an active scan over all channels to determine
          * which channel is used by the coordinator.
@@ -211,7 +206,6 @@ void usr_mlme_reset_conf(uint8_t status)
     }
     else
     {
-	printf("Reset MAC failed, restarting...\n\r");
         // something went wrong; restart
         wpan_mlme_reset_req(true);
     }
@@ -241,8 +235,6 @@ void usr_mlme_scan_conf(uint8_t status,
     {
         wpan_pandescriptor_t *coordinator;
         uint8_t i;
-	
-	printf("Scan succeeded...\n\r");
 
         /*
          * Analyze the ResultList.
@@ -273,7 +265,6 @@ void usr_mlme_scan_conf(uint8_t status,
                 else
                 {
                     // Something went wrong; restart
-		    printf("Error, unknown address mode, restarting...\n\r");
                     wpan_mlme_reset_req(true);
                     return;
                 }
@@ -291,7 +282,6 @@ void usr_mlme_scan_conf(uint8_t status,
                                         coordinator->ChannelPage,
                                         &(coordinator->CoordAddrSpec),
                                         WPAN_CAP_ALLOCADDRESS);
-		printf("Found coordinator, associating...\n\r");
                 return;
             }
 
@@ -309,7 +299,6 @@ void usr_mlme_scan_conf(uint8_t status,
                                SCAN_ALL_CHANNELS,
                                SCAN_DURATION,
                                DEFAULT_CHANNEL_PAGE);
-	    printf("Scanning again (unexpected coordinator)...\n\r");
         }
         else
         {
@@ -326,7 +315,6 @@ void usr_mlme_scan_conf(uint8_t status,
             short_addr[0] = (uint8_t)COORD_SHORT_ADDR;          // low byte
             short_addr[1] = (uint8_t)(COORD_SHORT_ADDR >> 8);   // high byte
             wpan_mlme_set_req(macShortAddress, short_addr);
-	    printf("No network found, starting new one (unexpected coordinator)...\n\r");
         }
     }
     else if (status == MAC_NO_BEACON)
@@ -341,7 +329,6 @@ void usr_mlme_scan_conf(uint8_t status,
                                SCAN_ALL_CHANNELS,
                                SCAN_DURATION,
                                DEFAULT_CHANNEL_PAGE);
-	    printf("No network found, scanning again...\n\r");
         }
         else
         {
@@ -358,13 +345,10 @@ void usr_mlme_scan_conf(uint8_t status,
             short_addr[0] = (uint8_t)COORD_SHORT_ADDR;          // low byte
             short_addr[1] = (uint8_t)(COORD_SHORT_ADDR >> 8);   // high byte
             wpan_mlme_set_req(macShortAddress, short_addr);
-	    
-	    printf("No network found, starting new one (no beacon)...\n\r");
         }
     }
     else
     {
-	printf("Scan failed, restarting...\n\r");
         // Something went wrong; restart
         wpan_mlme_reset_req(true);
     }
@@ -381,8 +365,6 @@ void usr_mlme_scan_conf(uint8_t status,
  */
 static void network_scan_indication_cb(void *parameter)
 {
-    printf("Still scanning...\n\r");
-
     pal_led(LED_NWK_SETUP, LED_TOGGLE);
 
     // Re-start led timer again
@@ -471,7 +453,6 @@ void usr_mlme_start_conf(uint8_t status)
 {
     if (status == MAC_SUCCESS)
     {
-	printf("Network established.\n\r+OK\n\r");
         /*
          * Network is established.
          * Waiting for association indication from a device.
@@ -483,7 +464,6 @@ void usr_mlme_start_conf(uint8_t status)
     }
     else
     {
-	printf("Failed to establish network, restarting...\n\r");
         // something went wrong; restart
         wpan_mlme_reset_req(true);
     }
@@ -548,7 +528,6 @@ void usr_mlme_comm_status_ind(wpan_addr_spec_t *SrcAddrSpec,
          * during assignment of the short address within the function
          * assign_new_short_addr()
          */
-	printf("Device associated.\n\r+OK\n\r");
     }
 
     /* Keep compiler happy. */
@@ -581,7 +560,6 @@ void usr_mcps_data_ind(wpan_addr_spec_t *SrcAddrSpec,
                        uint8_t DSN)
 #endif  /* ENABLE_TSTAMP */
 {
-    printf("Received data\n\r");
    /*
     * Dummy data has been received successfully.
     * Application code could be added here ...
@@ -660,7 +638,6 @@ void usr_mlme_associate_conf(uint16_t AssocShortAddress, uint8_t status)
 {
     if (status == MAC_SUCCESS)
     {
-	printf("Joined network.\n\r");
         // Stop timer used for search indication (same as used for data transmission)
         pal_timer_stop(TIMER_LED_OFF);
         pal_led(LED_NWK_SETUP, LED_ON);
@@ -729,8 +706,6 @@ static void app_timer_cb(void *parameter)
                     TIMEOUT_RELATIVE,
                     (FUNC_PTR)app_timer_cb,
                     NULL);
-    
-    printf("Sending data...\n\r");
 
     parameter = parameter;  /* Keep compiler happy. */
 }
@@ -753,7 +728,6 @@ void usr_mcps_data_conf(uint8_t msduHandle, uint8_t status)
 {
     if (status == MAC_SUCCESS)
     {
-	printf("Data sent.\n\r");
         /*
          * Dummy data has been transmitted successfully.
          * Application code could be added here ...
@@ -780,7 +754,6 @@ void usr_mcps_data_conf(uint8_t msduHandle, uint8_t status)
  */
 static void data_exchange_led_off_cb(void *parameter)
 {
-    printf("LED off.\n\r");
     pal_led(LED_DATA, LED_OFF);
 
     parameter = parameter;  /* Keep compiler happy. */
@@ -788,6 +761,5 @@ static void data_exchange_led_off_cb(void *parameter)
 
 
 
-// vim:ai:cin:sw=4 sts=4 ft=c
 
 /* EOF */

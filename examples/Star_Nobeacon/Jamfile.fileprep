@@ -5,6 +5,7 @@ rule FilePrep
 {
   Depends $(<) : $(>) ;
   Depends fileprep : $(<) ;
+  Clean clean : $(<) ;
 }
 
 actions FilePrep
@@ -34,8 +35,9 @@ OUT_DIR = . ;
 #File example_main.c : $(PATH_APP)/Src/main.c ;
 #Depends files : example_main.c ;
 
-for _I in $(PATH_APP)/Src/main.c $(MAC_LIB)/$(PROJECT_MAC_MODULES) [ GLOB $(PROJECT_HDRS) : *.h ]
+for _I in  $(MAC_LIB)/$(PROJECT_MAC_MODULES) [ GLOB $(PROJECT_HDRS) : *.h ]
 {
   FilePrep $(_I:D=$(OUT_DIR)) : $(_I) ;
 }
 
+FilePrep example_main.c : $(PATH_APP)/Src/main.c ;

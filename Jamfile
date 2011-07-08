@@ -20,9 +20,11 @@ PATH_SIO_SUPPORT = $(PATH_ROOT)/Applications/Helper_Files/SIO_Support ;
 
 OUT_DIR = . ;
 
-HDRS =  $(PATH_SIO_SUPPORT)/Inc $(PATH_GLOB_INC) $(PATH_RES)/Buffer_Management/Inc/ $(PATH_RES)/Queue_Management/Inc/ $(PATH_MAC)/Inc/ $(PATH_TAL)/Inc/ $(PATH_TAL)/$(_TAL_TYPE)/Inc/ $(PATH_ROOT)/TFA/Inc/ $(PATH_PAL)/Inc/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Inc $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Inc/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/$(_BOARD_TYPE) ;
+HDRS =  $(PATH_SIO_SUPPORT)/Inc $(PATH_GLOB_INC) $(PATH_RES)/Buffer_Management/Inc/ $(PATH_RES)/Queue_Management/Inc/ $(PATH_MAC)/Inc/ $(PATH_TAL)/Inc/ $(PATH_TAL)/$(_TAL_TYPE)/Inc/ $(PATH_ROOT)/TFA/Inc/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Inc $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Inc/ ;
 
-NON_MAC_LIB =  $(PATH_SIO_SUPPORT)/Src $(PATH_RES)/Buffer_Management/Src/ $(PATH_RES)/Queue_Management/Src/  $(PATH_TAL)/$(_TAL_TYPE)/Src/ $(PATH_ROOT)/TFA/$(_TAL_TYPE)/Src/ $(PATH_PAL)/Src/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Src/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Boards/$(_BOARD_TYPE) ;
+PREP_HDRS = $(PATH_PAL)/Inc/ ;
+
+NON_MAC_LIB =  $(PATH_SIO_SUPPORT)/Src $(PATH_RES)/Buffer_Management/Src/ $(PATH_RES)/Queue_Management/Src/  $(PATH_TAL)/$(_TAL_TYPE)/Src/ $(PATH_ROOT)/TFA/$(_TAL_TYPE)/Src/ $(PATH_PAL)/Src/ $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/Generic/Src $(PATH_PAL)/$(_PAL_GENERIC_TYPE)/$(_PAL_TYPE)/Src/ ; 
 MAC_LIB = $(PATH_MAC)/Src/ ; 
 TAL_LIB = $(PATH_TAL)/Src/ ;
 
@@ -33,6 +35,7 @@ rule FilePrep
 {
   Depends $(<) : $(>) ;
   Depends fileprep : $(<) ;
+  Clean clean : $(<) ;
 }
 
 actions FilePrep

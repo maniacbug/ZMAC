@@ -11,6 +11,9 @@ BEGIN {
 
   print "#include <DEFINES>"
 }
+/^#define AVR/ {
+  print "#undef AVR"
+}
 {
 #
 # pal.h tries to redefine HIGH and LOW, which is a problem because
@@ -19,6 +22,10 @@ BEGIN {
   gsub(/== HIGH/,"== pin_HIGH")
   gsub(/= LOW/,"= pin_LOW")
   gsub(/= HIGH/,"= pin_HIGH")
+  gsub(/^    HIGH,/,"    pin_HIGH")
+  gsub(/^    LOW,/,"    pin_LOW")
+  
+  gsub(/main.void/,"example_main(void")
 
 #
 # Work around the one c99 usage they like, "for (int x=1..." by
