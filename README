@@ -1,7 +1,19 @@
 # Makes an Arduino Library from the AVR2025 distribution
 
-Currently under development.  See PROBLEMS file for issues.
+How to use (Win32)
 
-From this directory, "jam files" will pull the global files into this dir.
-
-From examples/Promiscuous_Mode_Demo, "jam files" will pull the specific files that this demo needs.
+1. Install https://github.com/logos-electromechanical/Zigduino and ensure it's fully set up.
+2. Unpack this distribution where you put your Arduino libaries, e.g. C:\users\me\Documents\Arduino\libraries\AVR2025
+3. Download Atmel's IEEE 802.15.4 MAC distribution from http://www.atmel.com/dyn/products/tools_card.asp?tool_id=4675 and unpack it somewhere
+4. Download and install gawk http://gnuwin32.sourceforge.net/packages/gawk.htm
+5. Edit fileprep.cmd...
+6. ...Update the MAC_INSTALL variable to where you installed the MAC
+7. ...Update the GAWK variable to the location of the gawk binary, typically "C:\Program Files\GnuWin32\bin\gawk.exe"
+8. Open a command window, cd to the AVR2025 directory
+9. Type "fileprep.cmd"
+10. Exit Arduino
+11. Start Arduino
+12. Select File > Examples > AVR2025 > Star_NoBeacon
+13. Verify
+14. Upload
+15. Smile!

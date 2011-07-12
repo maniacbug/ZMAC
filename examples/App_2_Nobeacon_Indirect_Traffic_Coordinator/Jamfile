@@ -1,7 +1,0 @@
-APP_DIR = App_2_Nobeacon_Indirect_Traffic/Coordinator ;
-CFLAGS += -DSIO_HUB ;
-CFLAGS += -DUSB0 ;
-CFLAGS += -DDEBUG=0 ;
-CFLAGS += -DREDUCED_PARAM_CHECK ;
-CFLAGS += -DFFD ;
-include ../Jamfile ;
