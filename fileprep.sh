@@ -1,6 +1,6 @@
-MAC_INSTALL=/home/james/Source/MAC_v_2_6_1
+MAC_INSTALL=~/Source/MAC_v_2_6_1
 APP=Star_Nobeacon
-GAWK=/usr/bin/gawk
+GAWK=gawk
 
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/Helper_Files/SIO_Support/Src/sio_handler.c > ./sio_handler.c
 $GAWK -f fileprep.awk $MAC_INSTALL/Resources/Buffer_Management/Src/bmm.c > ./bmm.c
