@@ -46,6 +46,18 @@ actions FilePrep
   gawk -f fileprep.awk $(>) > $(<)
 }
 
+rule Archive
+{
+  Depends archive : $(<) ;
+  ALWAYS $(<) ;
+  NOTFILE archive ;
+}
+
+actions Archive
+{
+  git archive HEAD --prefix=AVR2025/ | gzip > $(<)
+}
+
 for _I in $(LIB_MODULES) [ GLOB $(HDRS) : *.h ]
 {
   FilePrep $(_I:D=$(OUT_DIR)) : $(_I) ;
@@ -73,3 +85,5 @@ for _I in  $(MAC_LIB)/$(PROJECT_MAC_MODULES) [ GLOB $(PROJECT_HDRS) : *.h ]
 }
 
 FilePrep $(EXAMPLE_DIR)/example_main.c : $(PATH_APP)/Src/main.c ;
+
+Archive $(HOME)/Downloads/AVR2025-0.2.tgz ;
