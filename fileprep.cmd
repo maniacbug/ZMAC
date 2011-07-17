@@ -1,8 +1,101 @@
 set MAC_INSTALL=C:\Atmel\MAC_v_2_6_1
-set APP=Star_Nobeacon
 set GAWK="C:\Program Files\GnuWin32\bin\gawk.exe"
 
-%GAWK% -f fileprep.awk %MAC_INSTALL%\Applications\Helper_Files\SIO_Support\Src\sio_handler.c > ./sio_handler.c
+set APP=App_1_Nobeacon_Device
+set APP_SRC_DIR=App_1_Nobeacon/Device
+mkdir -p examples/%APP%
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP_SRC_DIR%/Src/main.c > examples/%APP%/example_main.c
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_purge_conf.c > examples/%APP%/usr_mcps_purge_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_data_ind.c > examples/%APP%/usr_mcps_data_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/%APP%/usr_mlme_beacon_notify_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_conf.c > examples/%APP%/usr_mlme_disassociate_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_ind.c > examples/%APP%/usr_mlme_disassociate_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_set_conf.c > examples/%APP%/usr_mlme_set_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_get_conf.c > examples/%APP%/usr_mlme_get_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_orphan_ind.c > examples/%APP%/usr_mlme_orphan_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_poll_conf.c > examples/%APP%/usr_mlme_poll_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_rx_enable_conf.c > examples/%APP%/usr_mlme_rx_enable_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_sync_loss_ind.c > examples/%APP%/usr_mlme_sync_loss_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_associate_ind.c > examples/%APP%/usr_mlme_associate_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_comm_status_ind.c > examples/%APP%/usr_mlme_comm_status_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_start_conf.c > examples/%APP%/usr_mlme_start_conf.c
+
+set APP=App_1_Nobeacon_Coordinator
+set APP_SRC_DIR=App_1_Nobeacon/Coordinator
+mkdir -p examples/%APP%
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP_SRC_DIR%/Src/main.c > examples/%APP%/example_main.c
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_data_conf.c > examples/%APP%/usr_mcps_data_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_purge_conf.c > examples/%APP%/usr_mcps_purge_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_associate_conf.c > examples/%APP%/usr_mlme_associate_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/%APP%/usr_mlme_beacon_notify_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_conf.c > examples/%APP%/usr_mlme_disassociate_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_ind.c > examples/%APP%/usr_mlme_disassociate_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_get_conf.c > examples/%APP%/usr_mlme_get_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_orphan_ind.c > examples/%APP%/usr_mlme_orphan_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_poll_conf.c > examples/%APP%/usr_mlme_poll_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_rx_enable_conf.c > examples/%APP%/usr_mlme_rx_enable_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_sync_loss_ind.c > examples/%APP%/usr_mlme_sync_loss_ind.c
+
+set APP=App_2_Nobeacon_Indirect_Traffic_Coordinator
+set APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Coordinator
+mkdir -p examples/%APP%
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP_SRC_DIR%/Src/main.c > examples/%APP%/example_main.c
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_purge_conf.c > examples/%APP%/usr_mcps_purge_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_data_ind.c > examples/%APP%/usr_mcps_data_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/%APP%/usr_mlme_beacon_notify_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_conf.c > examples/%APP%/usr_mlme_disassociate_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_ind.c > examples/%APP%/usr_mlme_disassociate_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_associate_conf.c > examples/%APP%/usr_mlme_associate_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_get_conf.c > examples/%APP%/usr_mlme_get_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_orphan_ind.c > examples/%APP%/usr_mlme_orphan_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_poll_conf.c > examples/%APP%/usr_mlme_poll_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_rx_enable_conf.c > examples/%APP%/usr_mlme_rx_enable_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_sync_loss_ind.c > examples/%APP%/usr_mlme_sync_loss_ind.c
+
+set APP=App_2_Nobeacon_Indirect_Traffic_Device
+set APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Device
+mkdir -p examples/%APP%
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP_SRC_DIR%/Src/main.c > examples/%APP%/example_main.c
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_purge_conf.c > examples/%APP%/usr_mcps_purge_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_data_conf.c > examples/%APP%/usr_mcps_data_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/%APP%/usr_mlme_beacon_notify_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_conf.c > examples/%APP%/usr_mlme_disassociate_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_ind.c > examples/%APP%/usr_mlme_disassociate_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_associate_ind.c > examples/%APP%/usr_mlme_associate_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_comm_status_ind.c > examples/%APP%/usr_mlme_comm_status_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_start_conf.c > examples/%APP%/usr_mlme_start_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_get_conf.c > examples/%APP%/usr_mlme_get_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_set_conf.c > examples/%APP%/usr_mlme_set_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_orphan_ind.c > examples/%APP%/usr_mlme_orphan_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_rx_enable_conf.c > examples/%APP%/usr_mlme_rx_enable_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_sync_loss_ind.c > examples/%APP%/usr_mlme_sync_loss_ind.c
+
+set APP=Star_Nobeacon
+set APP_SRC_DIR=%APP%
+mkdir -p examples/%APP%
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP_SRC_DIR%/Src/main.c > examples/%APP%/example_main.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP_SRC_DIR%/Inc/app_config.h > ./app_config.h
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_purge_conf.c > examples/%APP%/usr_mcps_purge_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/%APP%/usr_mlme_beacon_notify_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_conf.c > examples/%APP%/usr_mlme_disassociate_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_ind.c > examples/%APP%/usr_mlme_disassociate_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_get_conf.c > examples/%APP%/usr_mlme_get_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_orphan_ind.c > examples/%APP%/usr_mlme_orphan_ind.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_poll_conf.c > examples/%APP%/usr_mlme_poll_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_rx_enable_conf.c > examples/%APP%/usr_mlme_rx_enable_conf.c
+%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_sync_loss_ind.c > examples/%APP%/usr_mlme_sync_loss_ind.c
+
+%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/Helper_Files/SIO_Support/Src/sio_handler.c > ./sio_handler.c
 %GAWK% -f fileprep.awk %MAC_INSTALL%/Resources/Buffer_Management/Src/bmm.c > ./bmm.c
 %GAWK% -f fileprep.awk %MAC_INSTALL%/Resources/Queue_Management/Src/qmm.c > ./qmm.c
 %GAWK% -f fileprep.awk %MAC_INSTALL%/TAL/ATMEGARF_TAL_1/Src/tal_pwr_mgmt.c > ./tal_pwr_mgmt.c
@@ -88,15 +181,4 @@ set GAWK="C:\Program Files\GnuWin32\bin\gawk.exe"
 %GAWK% -f fileprep.awk %MAC_INSTALL%/PAL/MEGA_RF/ATMEGA128RFA1/Boards/pal_boardtypes.h > ./pal_boardtypes.h
 %GAWK% -f fileprep.awk %MAC_INSTALL%/PAL/MEGA_RF/ATMEGA128RFA1/Inc/pal_usb.h > ./pal_usb.h
 %GAWK% -f fileprep.awk %MAC_INSTALL%/PAL/MEGA_RF/ATMEGA128RFA1/Inc/pal_mcu_generic.h > ./pal_mcu_generic.h
-%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP%/Inc/app_config.h > ./app_config.h
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mcps_purge_conf.c > examples/Star_Nobeacon/usr_mcps_purge_conf.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/Star_Nobeacon/usr_mlme_beacon_notify_ind.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_conf.c > examples/Star_Nobeacon/usr_mlme_disassociate_conf.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_disassociate_ind.c > examples/Star_Nobeacon/usr_mlme_disassociate_ind.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_get_conf.c > examples/Star_Nobeacon/usr_mlme_get_conf.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_orphan_ind.c > examples/Star_Nobeacon/usr_mlme_orphan_ind.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_poll_conf.c > examples/Star_Nobeacon/usr_mlme_poll_conf.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_rx_enable_conf.c > examples/Star_Nobeacon/usr_mlme_rx_enable_conf.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/MAC/Src/usr_mlme_sync_loss_ind.c > examples/Star_Nobeacon/usr_mlme_sync_loss_ind.c
-%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP%/Inc/app_config.h > examples/Star_Nobeacon/app_config.h
-%GAWK% -f fileprep.awk %MAC_INSTALL%/Applications/MAC_Examples/%APP%/Src/main.c > examples/Star_Nobeacon/example_main.c
+
