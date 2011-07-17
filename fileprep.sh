@@ -5,9 +5,7 @@ APP=App_1_Nobeacon_Device
 APP_SRC_DIR=App_1_Nobeacon/Device
 mkdir -p examples/$APP
 
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > examples/$APP/app_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > ./app_config.h
 
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_ind.c > examples/$APP/usr_mcps_data_ind.c
@@ -28,9 +26,7 @@ APP=App_1_Nobeacon_Coordinator
 APP_SRC_DIR=App_1_Nobeacon/Coordinator
 mkdir -p examples/$APP
 
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > examples/$APP/app_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > ./app_config.h
 
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_conf.c > examples/$APP/usr_mcps_data_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
@@ -48,9 +44,7 @@ APP=App_2_Nobeacon_Indirect_Traffic_Coordinator
 APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Coordinator
 mkdir -p examples/$APP
 
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > examples/$APP/app_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > ./app_config.h
 
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_ind.c > examples/$APP/usr_mcps_data_ind.c
@@ -68,9 +62,7 @@ APP=App_2_Nobeacon_Indirect_Traffic_Device
 APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Device
 mkdir -p examples/$APP
 
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > examples/$APP/app_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > ./app_config.h
 
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_conf.c > examples/$APP/usr_mcps_data_conf.c
@@ -90,7 +82,6 @@ APP=Star_Nobeacon
 APP_SRC_DIR=$APP
 mkdir -p examples/$APP
 
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > examples/$APP/app_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > ./app_config.h
 

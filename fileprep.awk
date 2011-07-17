@@ -14,6 +14,14 @@ BEGIN {
 /^#define AVR/ {
   print "#undef AVR"
 }
+
+/^} app_timer_t\;/ {
+
+  print ",APP_TIMER_INDIRECT_DATA = (APP_FIRST_TIMER_ID),"
+  print "APP_TIMER_POLL_DATA = (APP_FIRST_TIMER_ID),"
+  print "APP_TIMER_LED_OFF = (APP_FIRST_TIMER_ID + 1)"
+}
+
 {
 #
 # pal.h tries to redefine HIGH and LOW, which is a problem because
