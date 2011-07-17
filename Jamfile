@@ -49,13 +49,14 @@ actions FilePrep
 rule Archive
 {
   Depends archive : $(<) ;
+  COMMIT on $(<) = $(2) ;
   ALWAYS $(<) ;
   NOTFILE archive ;
 }
 
 actions Archive
 {
-  git archive HEAD --prefix=AVR2025/ | gzip > $(<)
+  git archive $(COMMIT) --prefix=ZMAC/ | gzip > $(<)
 }
 
 for _I in $(LIB_MODULES) [ GLOB $(HDRS) : *.h ]
@@ -86,4 +87,4 @@ for _I in  $(MAC_LIB)/$(PROJECT_MAC_MODULES) [ GLOB $(PROJECT_HDRS) : *.h ]
 
 FilePrep $(EXAMPLE_DIR)/example_main.c : $(PATH_APP)/Src/main.c ;
 
-Archive $(HOME)/Downloads/AVR2025-0.2.tgz ;
+Archive $(HOME)/Downloads/ZMAC-0.3.tgz : 94f1a104b663138789eeaf59f3b5b17c1dd91012 ;
