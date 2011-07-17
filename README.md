@@ -22,7 +22,7 @@ Make sure you have these all in place, or this libary won't do you much good.
 1. Unpack this distribution where you put your Arduino libaries, e.g. C:\users\me\Documents\Arduino\libraries\ZMAC
 1. Download and install [gawk](http://gnuwin32.sourceforge.net/packages/gawk.htm)
 1. Edit fileprep.cmd on Windows or fileprep.sh on Mac or Linux...
-1. ...Update the MAC\_INSTALL variable to where you installed the MAC, typically "C:\Atmel\MAC\_\v\_2\_6\_1"
+1. ...Update the MAC\_INSTALL variable to where you installed the MAC, typically "C:\Atmel\MAC\_v\_2\_6\_1"
 1. ...Update the GAWK variable to the location of the gawk binary, typically "C:\Program Files\GnuWin32\bin\gawk.exe"
 1. Open a command window, cd to the ZMAC directory
 1. Type "fileprep.cmd" on Windows or "./fileprep.sh" on Mac or Linux
