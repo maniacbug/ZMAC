@@ -1,6 +1,6 @@
 BEGIN {
   print "set MAC_INSTALL=C:\\Atmel\\MAC_v_2_6_1"
-  print "set GAWK=\"C:\\Program Files\\GnuWin32\\bin\\gawk.exe\"" 
+  print "set GAWK=gawk.exe" 
 }
 /^GAWK=/ { next }
 /^MAC_INSTALL=/ { next }

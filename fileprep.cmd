@@ -1,5 +1,5 @@
 set MAC_INSTALL=C:\Atmel\MAC_v_2_6_1
-set GAWK="C:\Program Files\GnuWin32\bin\gawk.exe"
+set GAWK=gawk.exe
 
 set APP=App_1_Nobeacon_Device
 set APP_SRC_DIR=App_1_Nobeacon/Device
