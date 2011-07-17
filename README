@@ -7,7 +7,7 @@ How to use (Win32)
 3. Download Atmel's IEEE 802.15.4 MAC distribution from http://www.atmel.com/dyn/products/tools_card.asp?tool_id=4675 and unpack it somewhere.  This has been tested with version 2.6.1
 4. Download and install gawk http://gnuwin32.sourceforge.net/packages/gawk.htm
 5. Edit fileprep.cmd...
-6. ...Update the MAC_INSTALL variable to where you installed the MAC
+6. ...Update the MAC_INSTALL variable to where you installed the MAC, typically "C:\Atmel\MAC_v_2_6_1"
 7. ...Update the GAWK variable to the location of the gawk binary, typically "C:\Program Files\GnuWin32\bin\gawk.exe"
 8. Open a command window, cd to the AVR2025 directory
 9. Type "fileprep.cmd"

@@ -1,4 +1,4 @@
-set MAC_INSTALL=c:\users\me\Source\MAC_v_2_6_1
+set MAC_INSTALL=C:\Atmel\MAC_v_2_6_1
 set APP=Star_Nobeacon
 set GAWK="C:\Program Files\GnuWin32\bin\gawk.exe"
 
