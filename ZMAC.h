@@ -1,3 +1,5 @@
+#include <WProgram.h>
+
 /* === Configuration Defines ================================================*/
 
 #define VENDOR_BOARDTYPES 1

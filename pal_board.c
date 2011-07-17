@@ -1,4 +1,4 @@
-#include <DEFINES>
+#include <ZMAC.h>
 /**
  * @file pal_board.c
  *

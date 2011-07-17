@@ -6,7 +6,7 @@
 error
 errors
 ojam/
-!AVR2025.h
+!ZMAC.h
 !vendor_boardtypes.h
 !pal_board.c
 !pal_config.h

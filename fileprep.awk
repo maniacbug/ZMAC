@@ -9,7 +9,7 @@ BEGIN {
 # the C files need to get the -D defines crammed in at the top
 #
 
-  print "#include <DEFINES>"
+  print "#include <ZMAC.h>"
 }
 /^#define AVR/ {
   print "#undef AVR"
