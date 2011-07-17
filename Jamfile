@@ -88,3 +88,4 @@ for _I in  $(MAC_LIB)/$(PROJECT_MAC_MODULES) [ GLOB $(PROJECT_HDRS) : *.h ]
 FilePrep $(EXAMPLE_DIR)/example_main.c : $(PATH_APP)/Src/main.c ;
 
 Archive $(HOME)/Downloads/ZMAC-0.3.tgz : 94f1a104b663138789eeaf59f3b5b17c1dd91012 ;
+Archive $(HOME)/Downloads/ZMAC-0.4.tgz : ec02e5468aba612b5b6f2e56a988cc8e9901a1c0 ;
