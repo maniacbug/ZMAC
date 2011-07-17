@@ -4,7 +4,7 @@ How to use (Win32)
 
 1. Install https://github.com/logos-electromechanical/Zigduino and ensure it's fully set up.
 2. Unpack this distribution where you put your Arduino libaries, e.g. C:\users\me\Documents\Arduino\libraries\AVR2025
-3. Download Atmel's IEEE 802.15.4 MAC distribution from http://www.atmel.com/dyn/products/tools_card.asp?tool_id=4675 and unpack it somewhere
+3. Download Atmel's IEEE 802.15.4 MAC distribution from http://www.atmel.com/dyn/products/tools_card.asp?tool_id=4675 and unpack it somewhere.  This has been tested with version 2.6.1
 4. Download and install gawk http://gnuwin32.sourceforge.net/packages/gawk.htm
 5. Edit fileprep.cmd...
 6. ...Update the MAC_INSTALL variable to where you installed the MAC
