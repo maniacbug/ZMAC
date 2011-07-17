@@ -7,7 +7,7 @@ void setup(void)
 {
   Serial.begin(57600);
   printf_begin();
-  printf("AVR2025/examples/Star_Nobeacon/");
+  printf("AVR2025/examples/App_2_Nobeacon_Indirect_Traffic_Coordinator/");
   example_main(); 
 }
 void loop(void) 
