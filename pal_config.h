@@ -28,6 +28,7 @@ typedef enum button_id_tag
 
 #define PAL_WAIT_65_NS()                // empty
 #define LED_PORT                        (PORTD)
+#define LED_PORT_DIR                    (DDRD)
 #define LED_PIN_0                       (PB1)
 #define LED_PIN_1                       (PD5)
 #define LED_PIN_2                       (PD6)
