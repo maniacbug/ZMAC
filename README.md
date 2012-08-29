@@ -13,7 +13,7 @@ Here's how we solve this.  You download the MAC distribution yourself, sign up w
 Make sure you have these all in place, or this libary won't do you much good.
 
 1. [Zigduino hardware](http://www.logos-electro.com/zigduino/).
-1. [Arduino environment](http://www.arduino.cc/download/).  Obviously, you'll need Arduino.  This has been tested with 0022.
+1. [Arduino environment](http://www.arduino.cc/download/).  Obviously, you'll need Arduino.  This has been tested with 1.0.1.
 1. [Zigduino modifications to Arduino environment](https://github.com/logos-electromechanical/Zigduino).  Make sure this is all set up properly, and you can upload the 'Blink' sketch successfully.
 1. [Atmel's IEEE 802.15.4 MAC distribution](http://www.atmel.com/dyn/products/tools_card.asp?tool_id=4675).  This has been tested with 2.6.1.
 
