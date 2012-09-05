@@ -161,7 +161,11 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_msg_types.h > ./mac_msg_types.h
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_msg_const.h > ./mac_msg_const.h
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_msg_type_data_ind.h > ./mac_msg_type_data_ind.h
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_config.h > ./mac_config.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/Inc/tal.h > ./tal.h
+# fix issue with TAL_TYPE not properly defining RF_BAND, erase temp file
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/Inc/tal.h > ./tal.h_temp
+$GAWK '{sub(/(TAL_TYPE == ATMEGARFA1)/,"(TAL_TYPE == ATMEGARF_TAL_1)");print}' ./tal.h_temp > ./tal.h
+$RM ./tal.h_temp
+
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/Inc/tal_types.h > ./tal_types.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_slotted_csma.h > ./tal_slotted_csma.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_pib.h > ./tal_pib.h
