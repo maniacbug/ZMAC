@@ -159,6 +159,7 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_data_structures.h > ./mac_data_st
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_api.h > ./mac_api.h
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_msg_types.h > ./mac_msg_types.h
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_msg_const.h > ./mac_msg_const.h
+$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_msg_type_data_ind.h > ./mac_msg_type_data_ind.h
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_config.h > ./mac_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/Inc/tal.h > ./tal.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/Inc/tal_types.h > ./tal_types.h
