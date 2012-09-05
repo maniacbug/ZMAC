@@ -169,7 +169,11 @@ $RM ./tal.h_temp
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/Inc/tal_types.h > ./tal_types.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_slotted_csma.h > ./tal_slotted_csma.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_pib.h > ./tal_pib.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/atmega128rfa1.h > ./atmega128rfa1.h
+# fix issue with TAL_TYPE not properly defining RF_BAND, erase temp file
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/atmega128rfa1.h > ./atmega128rfa1.h_temp
+$GAWK '{sub(/(TAL_TYPE == ATMEGARFA1)/,"(TAL_TYPE == ATMEGARF_TAL_1)");print}' ./atmega128rfa1.h_temp > ./atmega128rfa1.h
+$RM ./atmega128rfa1.h_temp
+
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_irq_handler.h > ./tal_irq_handler.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_config.h > ./tal_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_tx.h > ./tal_tx.h
