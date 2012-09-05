@@ -16,7 +16,6 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_ind.c > example
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_set_conf.c > examples/$APP/usr_mlme_set_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_get_conf.c > examples/$APP/usr_mlme_get_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_orphan_ind.c > examples/$APP/usr_mlme_orphan_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_poll_conf.c > examples/$APP/usr_mlme_poll_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_associate_ind.c > examples/$APP/usr_mlme_associate_ind.c
