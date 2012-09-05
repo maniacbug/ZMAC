@@ -144,6 +144,7 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/mac_process_tal_tx_frame_status.c > .
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/mac_pib.c > ./mac_pib.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/mac_security.c > ./mac_security.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/mac_scan.c > ./mac_scan.c
+$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/mac_data_extract_mhr.c > ./mac_data_extract_mhr.c
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/Helper_Files/SIO_Support/Inc/sio_handler.h > ./sio_handler.h
 $GAWK -f fileprep.awk $MAC_INSTALL/Include/vendor_nwk_config.h > ./vendor_nwk_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/Include/return_val.h > ./return_val.h
