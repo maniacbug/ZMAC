@@ -1,5 +1,6 @@
 MAC_INSTALL=/home/jeremy/Documents/Work/MAC_v_2_8_0 
 GAWK=gawk
+RM=rm
 
 APP=Nobeacon_Device
 APP_SRC_DIR=Nobeacon_Application/Device
@@ -83,8 +84,10 @@ APP_SRC_DIR=$APP
 mkdir -p examples/$APP
 
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > ./app_config.h
-# changes need to go here, remove problimatic usb redefines
+$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > ./app_config.h_temp
+# remove problimatic usb redefines, erase temp file
+$GAWK '{sub(/#define USB_.ID/,"// &");print}' ./app_config.h_temp > ./app_config.h
+$RM ./app_config.h_temp
 
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
