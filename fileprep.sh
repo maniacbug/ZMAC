@@ -1,8 +1,8 @@
-MAC_INSTALL=$HOME/Source/MAC_v_2_6_1
+MAC_INSTALL=/home/jeremy/Documents/Work/MAC_v_2_8_0 
 GAWK=gawk
 
-APP=App_1_Nobeacon_Device
-APP_SRC_DIR=App_1_Nobeacon/Device
+APP=Nobeacon_Device
+APP_SRC_DIR=Nobeacon_Application/Device
 mkdir -p examples/$APP
 
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
@@ -22,8 +22,8 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_associate_ind.c > examples/$
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_comm_status_ind.c > examples/$APP/usr_mlme_comm_status_ind.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_start_conf.c > examples/$APP/usr_mlme_start_conf.c
 
-APP=App_1_Nobeacon_Coordinator
-APP_SRC_DIR=App_1_Nobeacon/Coordinator
+APP=Nobeacon_Coordinator
+APP_SRC_DIR=Nobeacon_Application/Coordinator
 mkdir -p examples/$APP
 
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
@@ -40,43 +40,43 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_poll_conf.c > examples/$APP/
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
 
-APP=App_2_Nobeacon_Indirect_Traffic_Coordinator
-APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Coordinator
-mkdir -p examples/$APP
+#APP=App_2_Nobeacon_Indirect_Traffic_Coordinator
+#APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Coordinator
+#mkdir -p examples/$APP
 
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
 
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_ind.c > examples/$APP/usr_mcps_data_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_conf.c > examples/$APP/usr_mlme_disassociate_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_ind.c > examples/$APP/usr_mlme_disassociate_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_associate_conf.c > examples/$APP/usr_mlme_associate_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_get_conf.c > examples/$APP/usr_mlme_get_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_orphan_ind.c > examples/$APP/usr_mlme_orphan_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_poll_conf.c > examples/$APP/usr_mlme_poll_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_ind.c > examples/$APP/usr_mcps_data_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_conf.c > examples/$APP/usr_mlme_disassociate_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_ind.c > examples/$APP/usr_mlme_disassociate_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_associate_conf.c > examples/$APP/usr_mlme_associate_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_get_conf.c > examples/$APP/usr_mlme_get_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_orphan_ind.c > examples/$APP/usr_mlme_orphan_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_poll_conf.c > examples/$APP/usr_mlme_poll_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
 
-APP=App_2_Nobeacon_Indirect_Traffic_Device
-APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Device
-mkdir -p examples/$APP
+#APP=App_2_Nobeacon_Indirect_Traffic_Device
+#APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Device
+#mkdir -p examples/$APP
 
-$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
 
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_conf.c > examples/$APP/usr_mcps_data_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_conf.c > examples/$APP/usr_mlme_disassociate_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_ind.c > examples/$APP/usr_mlme_disassociate_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_associate_ind.c > examples/$APP/usr_mlme_associate_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_comm_status_ind.c > examples/$APP/usr_mlme_comm_status_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_start_conf.c > examples/$APP/usr_mlme_start_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_get_conf.c > examples/$APP/usr_mlme_get_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_set_conf.c > examples/$APP/usr_mlme_set_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_orphan_ind.c > examples/$APP/usr_mlme_orphan_ind.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_conf.c > examples/$APP/usr_mcps_data_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_conf.c > examples/$APP/usr_mlme_disassociate_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_ind.c > examples/$APP/usr_mlme_disassociate_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_associate_ind.c > examples/$APP/usr_mlme_associate_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_comm_status_ind.c > examples/$APP/usr_mlme_comm_status_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_start_conf.c > examples/$APP/usr_mlme_start_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_get_conf.c > examples/$APP/usr_mlme_get_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_set_conf.c > examples/$APP/usr_mlme_set_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_orphan_ind.c > examples/$APP/usr_mlme_orphan_ind.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
+#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
 
 APP=Star_Nobeacon
 APP_SRC_DIR=$APP
@@ -84,6 +84,7 @@ mkdir -p examples/$APP
 
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Inc/app_config.h > ./app_config.h
+# changes need to go here, remove problimatic usb redefines
 
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
@@ -98,17 +99,17 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/Helper_Files/SIO_Support/Src/sio_handler.c > ./sio_handler.c
 $GAWK -f fileprep.awk $MAC_INSTALL/Resources/Buffer_Management/Src/bmm.c > ./bmm.c
 $GAWK -f fileprep.awk $MAC_INSTALL/Resources/Queue_Management/Src/qmm.c > ./qmm.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_pwr_mgmt.c > ./tal_pwr_mgmt.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_init.c > ./tal_init.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_pib.c > ./tal_pib.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_rx.c > ./tal_rx.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal.c > ./tal.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_rx_enable.c > ./tal_rx_enable.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_tx.c > ./tal_tx.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_ed.c > ./tal_ed.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_slotted_csma.c > ./tal_slotted_csma.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Src/tal_irq_handler.c > ./tal_irq_handler.c
-$GAWK -f fileprep.awk $MAC_INSTALL/TFA/ATMEGARF_TAL_1/Src/tfa.c > ./tfa.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_pwr_mgmt.c > ./tal_pwr_mgmt.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_init.c > ./tal_init.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_pib.c > ./tal_pib.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_rx.c > ./tal_rx.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal.c > ./tal.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_rx_enable.c > ./tal_rx_enable.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_tx.c > ./tal_tx.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_ed.c > ./tal_ed.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_slotted_csma.c > ./tal_slotted_csma.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Src/tal_irq_handler.c > ./tal_irq_handler.c
+$GAWK -f fileprep.awk $MAC_INSTALL/TFA/ATMEGARFA1/Src/tfa.c > ./tfa.c
 $GAWK -f fileprep.awk $MAC_INSTALL/PAL/MEGA_RF/Generic/Src/pal_flash.c > ./pal_flash.c
 $GAWK -f fileprep.awk $MAC_INSTALL/PAL/MEGA_RF/Generic/Src/pal_utils.c > ./pal_utils.c
 $GAWK -f fileprep.awk $MAC_INSTALL/PAL/MEGA_RF/Generic/Src/pal.c > ./pal.c
@@ -158,15 +159,15 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_msg_const.h > ./mac_msg_const.h
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Inc/mac_config.h > ./mac_config.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/Inc/tal.h > ./tal.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TAL/Inc/tal_types.h > ./tal_types.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/tal_slotted_csma.h > ./tal_slotted_csma.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/tal_pib.h > ./tal_pib.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/atmega128rfa1.h > ./atmega128rfa1.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/tal_irq_handler.h > ./tal_irq_handler.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/tal_config.h > ./tal_config.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/tal_tx.h > ./tal_tx.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/tal_constants.h > ./tal_constants.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/tal_internal.h > ./tal_internal.h
-$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARF_TAL_1/Inc/tal_rx.h > ./tal_rx.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_slotted_csma.h > ./tal_slotted_csma.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_pib.h > ./tal_pib.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/atmega128rfa1.h > ./atmega128rfa1.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_irq_handler.h > ./tal_irq_handler.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_config.h > ./tal_config.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_tx.h > ./tal_tx.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_constants.h > ./tal_constants.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_internal.h > ./tal_internal.h
+$GAWK -f fileprep.awk $MAC_INSTALL/TAL/ATMEGARFA1/Inc/tal_rx.h > ./tal_rx.h
 $GAWK -f fileprep.awk $MAC_INSTALL/TFA/Inc/tfa.h > ./tfa.h
 $GAWK -f fileprep.awk $MAC_INSTALL/PAL/Inc/armtypes.h > ./armtypes.h
 $GAWK -f fileprep.awk $MAC_INSTALL/PAL/Inc/avrtypes.h > ./avrtypes.h
