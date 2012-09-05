@@ -6,6 +6,9 @@
 #include "pal_config.h"
 
 #if (BOARD_TYPE == ZIGDUINO)
+
+void gpio_init(void) {}
+
 bool pal_calibrate_rc_osc(void)
 {
     return true;
