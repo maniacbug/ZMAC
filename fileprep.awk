@@ -15,7 +15,7 @@ BEGIN {
   print "#undef AVR"
 }
 
-/^} app_timer_t\;/ {
+/^} SHORTENUM app_timer_t\;/ {
 
   print ",APP_TIMER_INDIRECT_DATA = (APP_FIRST_TIMER_ID),"
   print "APP_TIMER_POLL_DATA = (APP_FIRST_TIMER_ID),"
