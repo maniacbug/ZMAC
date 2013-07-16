@@ -15,14 +15,14 @@ Make sure you have these all in place, or this libary won't do you much good.
 1. [Zigduino hardware](http://www.logos-electro.com/zigduino/).
 1. [Arduino environment](http://www.arduino.cc/download/).  Obviously, you'll need Arduino.  This has been tested with 1.0.1.
 1. [Zigduino modifications to Arduino environment](https://github.com/logos-electromechanical/Zigduino).  Make sure this is all set up properly, and you can upload the 'Blink' sketch successfully.
-1. [Atmel's IEEE 802.15.4 MAC distribution](http://www.atmel.com/dyn/products/tools_card.asp?tool_id=4675).  This has been tested with 2.6.1.
+1. [Atmel's IEEE 802.15.4 MAC distribution](http://www.atmel.com/tools/ieee802_15_4mac.aspx).  This has been tested with 2.8.0.
 
 ## Installing
 
 1. Unpack this distribution where you put your Arduino libaries, e.g. C:\users\me\Documents\Arduino\libraries\ZMAC
 1. Download and install [gawk](http://gnuwin32.sourceforge.net/packages/gawk.htm)
 1. Edit fileprep.cmd on Windows or fileprep.sh on Mac or Linux...
-1. ...Update the MAC\_INSTALL variable to where you installed the MAC, typically "C:\Atmel\MAC\_v\_2\_6\_1"
+1. ...Update the MAC\_INSTALL variable to where you installed the MAC, typically "C:\Atmel\MAC\_v\_2\_8\_0"
 1. ...Update the GAWK variable to the location of the gawk binary, typically "C:\Program Files\GnuWin32\bin\gawk.exe"
 1. Open a command window, cd to the ZMAC directory
 1. Type "fileprep.cmd" on Windows or "./fileprep.sh" on Mac or Linux
@@ -55,6 +55,6 @@ This MAC library is not particularly easy to use for beginners.  It expects a cr
 
 ## A better solution
 
-The next logical step to this is to create an library that's easier to use for mainstream Arduino users (e.g. beginners) that presents a higher-level layer to the user.  Currently the app is expected to handle much of the details of scanning and association.  This could all be pulled into the higher-level library.
+The next logical step to this is to create a library that's easier to use for mainstream Arduino users (e.g. beginners) that presents a higher-level layer to the user.  Currently the app is expected to handle much of the details of scanning and association.  This could all be pulled into the higher-level library.
 
 This hypothetical library should enable all the functionality covered in Robert Faludi's excellent [Wireless Sensor Networks](http://www.faludi.com/bwsn/) book.
