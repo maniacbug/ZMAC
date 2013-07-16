@@ -9,7 +9,6 @@ mkdir -p examples/$APP
 $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
 
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
-$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_ind.c > examples/$APP/usr_mcps_data_ind.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_conf.c > examples/$APP/usr_mcps_data_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_conf.c > examples/$APP/usr_mlme_disassociate_conf.c
