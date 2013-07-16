@@ -1,4 +1,4 @@
-MAC_INSTALL=/home/jeremy/Documents/Work/MAC_v_2_8_0 
+MAC_INSTALL=$HOME/Source/MAC_v_2_8_0 
 GAWK=gawk
 RM=rm
 
