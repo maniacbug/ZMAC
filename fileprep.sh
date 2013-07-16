@@ -10,6 +10,7 @@ $GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/ma
 
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_ind.c > examples/$APP/usr_mcps_data_ind.c
+$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_conf.c > examples/$APP/usr_mcps_data_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_conf.c > examples/$APP/usr_mlme_disassociate_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_ind.c > examples/$APP/usr_mlme_disassociate_ind.c
@@ -38,44 +39,6 @@ $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_orphan_ind.c > examples/$APP
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_poll_conf.c > examples/$APP/usr_mlme_poll_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
 $GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
-
-#APP=App_2_Nobeacon_Indirect_Traffic_Coordinator
-#APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Coordinator
-#mkdir -p examples/$APP
-
-#$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
-
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_ind.c > examples/$APP/usr_mcps_data_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_conf.c > examples/$APP/usr_mlme_disassociate_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_ind.c > examples/$APP/usr_mlme_disassociate_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_associate_conf.c > examples/$APP/usr_mlme_associate_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_get_conf.c > examples/$APP/usr_mlme_get_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_orphan_ind.c > examples/$APP/usr_mlme_orphan_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_poll_conf.c > examples/$APP/usr_mlme_poll_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
-
-#APP=App_2_Nobeacon_Indirect_Traffic_Device
-#APP_SRC_DIR=App_2_Nobeacon_Indirect_Traffic/Device
-#mkdir -p examples/$APP
-
-#$GAWK -f fileprep.awk $MAC_INSTALL/Applications/MAC_Examples/$APP_SRC_DIR/Src/main.c > examples/$APP/example_main.c
-
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_purge_conf.c > examples/$APP/usr_mcps_purge_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mcps_data_conf.c > examples/$APP/usr_mcps_data_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_beacon_notify_ind.c > examples/$APP/usr_mlme_beacon_notify_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_conf.c > examples/$APP/usr_mlme_disassociate_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_disassociate_ind.c > examples/$APP/usr_mlme_disassociate_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_associate_ind.c > examples/$APP/usr_mlme_associate_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_comm_status_ind.c > examples/$APP/usr_mlme_comm_status_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_start_conf.c > examples/$APP/usr_mlme_start_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_get_conf.c > examples/$APP/usr_mlme_get_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_set_conf.c > examples/$APP/usr_mlme_set_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_orphan_ind.c > examples/$APP/usr_mlme_orphan_ind.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_rx_enable_conf.c > examples/$APP/usr_mlme_rx_enable_conf.c
-#$GAWK -f fileprep.awk $MAC_INSTALL/MAC/Src/usr_mlme_sync_loss_ind.c > examples/$APP/usr_mlme_sync_loss_ind.c
 
 APP=Star_Nobeacon
 APP_SRC_DIR=$APP
